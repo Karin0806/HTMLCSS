@@ -1,52 +1,35 @@
-# HTMLCSS
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>BMI 계산기</title>
-</head>
+# <!DOCTYPE html>
+<html>
 
 <body>
 
-    <h2>BMI 계산기</h2>
+<h2>BMI 계산기</h2>
 
-    <p>신장을 입력하세요(cm)</p>
-    <input type="number" id="height">
+신장(cm):
+<input id="height">
 
-    <p>체중을 입력하세요(kg)</p>
-    <input type="number" id="weight">
+<br><br>
 
-    <button onclick="calculateBMI()">BMI 계산</button>
+체중(kg):
+<input id="weight">
 
-    <hr>
+<br><br>
 
-    <p>
-        신장: <span id="resultHeight"></span>cm
-    </p>
+<button onclick="calc()">계산</button>
 
-    <p>
-        체중: <span id="resultWeight"></span>kg
-    </p>
+<p>BMI: <span id="result"></span></p>
 
-    <p>
-        BMI: <span id="resultBMI"></span>
-    </p>
+<script>
+function calc() {
+    let h = document.getElementById("height").value / 100;
+    let w = document.getElementById("weight").value;
 
+    let bmi = w / (h * h);
 
-    <script>
-        function calculateBMI() {
-            let height = document.getElementById("height").value;
-            let weight = document.getElementById("weight").value;
-
-            let heightMeter = height / 100;
-
-            let bmi = weight / (heightMeter * heightMeter);
-
-            document.getElementById("resultHeight").innerText = height;
-            document.getElementById("resultWeight").innerText = weight;
-            document.getElementById("resultBMI").innerText = bmi.toFixed(2);
-        }
-    </script>
+    document.getElementById("result").innerText = bmi.toFixed(2);
+}
+</script>
 
 </body>
+
 </html>
